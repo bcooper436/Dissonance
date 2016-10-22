@@ -89,7 +89,8 @@ class EverestConnector implements BluetoothListener {
             headPhoneCtrl.commonCtrl.get9AxisRawData();
             headPhoneCtrl.commonCtrl.get9AxisSensorStatus();
             headPhoneCtrl.commonCtrl.get9AxisPushFrequency();
-
+            headPhoneCtrl.commonCtrl.setProgrammableIndexButton(3);
+            headPhoneCtrl.commonCtrl.getProgrammableIndexButton();
             headPhoneCtrl.setCommonListner(new CommonListner() {
 
                 @Override
@@ -145,6 +146,7 @@ class EverestConnector implements BluetoothListener {
                 @Override
                 public void getCustomButtonReply() {
                     Log.d("EVERTEST", "button pressed");
+                    MainActivity.turnOnOrOffEffect();
                 }
 
                 @Override

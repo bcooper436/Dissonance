@@ -1,6 +1,7 @@
 package com.example.bradleycooper.dissonance;
 
 import android.annotation.TargetApi;
+import android.bluetooth.BluetoothAdapter;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -9,6 +10,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.OpenableColumns;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -61,15 +63,6 @@ public class LaunchingScreen extends AppCompatActivity {
         textViewTwitterButton.setTypeface(font3);
         textViewAppDescription.setTypeface(font3);
         textViewGetStarted.setTypeface(font);
-
-        Button buttonMain = (Button)findViewById(R.id.buttonMain);
-        buttonMain.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(LaunchingScreen.this, MainActivity.class);
-                LaunchingScreen.this.startActivity(myIntent);
-            }
-        });
     }
     @Override
     public void onResume() {
@@ -163,6 +156,12 @@ public class LaunchingScreen extends AppCompatActivity {
         ImageView imageViewPlaylistCheck = (ImageView)findViewById(R.id.imageViewPlaylistCheck);
         ImageView imageViewTwitterCheck = (ImageView)findViewById(R.id.imageViewTwitterCheck);
 
+        TextView textViewPair = (TextView) findViewById(R.id.textViewPair);
+        TextView textViewPlaylist = (TextView) findViewById(R.id.textViewPlaylist);
+        TextView textViewTwitter = (TextView) findViewById(R.id.textViewTwitter);
+
+        int colorGray = ContextCompat.getColor(getApplicationContext(), R.color.colorMaterialGrey900);
+
         /*
         ImageView imageViewPairX = (ImageView)findViewById(R.id.imageViewPairX);
         ImageView imageViewPlaylistX = (ImageView)findViewById(R.id.imageViewPlaylistX);
@@ -171,21 +170,24 @@ public class LaunchingScreen extends AppCompatActivity {
         if(isPaired){
             //imageViewPairX.setVisibility(View.INVISIBLE);
             imageViewPairCheck.setVisibility(View.VISIBLE);
+            textViewPair.setTextColor(colorGray);
         }
         if(isPlaylist){
             //imageViewPlaylistX.setVisibility(View.INVISIBLE);
             imageViewPlaylistCheck.setVisibility(View.VISIBLE);
+            textViewPlaylist.setTextColor(colorGray);
         }
         if(isTwitter){
             //imageViewTwitterX.setVisibility(View.INVISIBLE);
             imageViewTwitterCheck.setVisibility(View.VISIBLE);
+            textViewTwitter.setTextColor(colorGray);
         }
         if(isPaired && isPlaylist && isTwitter){
             relativeLayoutStartSet.setVisibility(View.VISIBLE);
             relativeLayoutStartSet.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent myIntent = new Intent(LaunchingScreen.this, PerformancePage.class);
+                    Intent myIntent = new Intent(LaunchingScreen.this, MainActivity.class);
                     myIntent.putExtra("songUri", selectedSong.toString());
                     myIntent.putExtra("songTitle", songTitle);
                     myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -224,6 +226,11 @@ public class LaunchingScreen extends AppCompatActivity {
     }
     private void pairHeadphones(){
         isPaired = true;
+
+        BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        if (!mBluetoothAdapter.isEnabled()) {
+            mBluetoothAdapter.enable();
+        }
         updateStatusOfStartup();
     }
     private void createPlaylist(){
@@ -233,9 +240,6 @@ public class LaunchingScreen extends AppCompatActivity {
         intent_upload.setType("audio/*");
         intent_upload.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(intent_upload,1);
-
-
-        updateStatusOfStartup();
     }
     @Override
     protected void onActivityResult(int requestCode,int resultCode,Intent data){
@@ -252,6 +256,7 @@ public class LaunchingScreen extends AppCompatActivity {
             }
         }
         super.onActivityResult(requestCode, resultCode, data);
+        updateStatusOfStartup();
     }
     private void connectTwitter(){
         isTwitter = true;
@@ -281,6 +286,14 @@ public class LaunchingScreen extends AppCompatActivity {
         imageViewPlaylistCheck.setVisibility(View.INVISIBLE);
         imageViewTwitterCheck.setVisibility(View.INVISIBLE);
 
+        int colorPrimary = ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary);
+        TextView textViewPair = (TextView) findViewById(R.id.textViewPair);
+        TextView textViewPlaylist = (TextView) findViewById(R.id.textViewPlaylist);
+        TextView textViewTwitter = (TextView) findViewById(R.id.textViewTwitter);
+
+        textViewPair.setTextColor(colorPrimary);
+        textViewPlaylist.setTextColor(colorPrimary);
+        textViewTwitter.setTextColor(colorPrimary);
 
         //ImageView imageViewPairX = (ImageView)findViewById(R.id.imageViewPairX);
         //ImageView imageViewPlaylistX = (ImageView)findViewById(R.id.imageViewPlaylistX);

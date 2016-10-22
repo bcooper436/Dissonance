@@ -38,19 +38,19 @@ public class StartingValue {
 
 
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 50; i++) {
             String point = startingValues.get(i).getAxisInfo();
             parseAxis(point);
         }
-        double avGyroX = gyroXtotal / 10;
-        double avGyroY = gyroYtotal / 10;
-        double avGyroZ = gyroZtotal / 10;
-        double avAccelX = accelXtotal / 10;
-        double avAccelY = accelYtotal / 10;
-        double avAccelZ = accelZtotal / 10;
-        double avMagnX = MagnXtotal / 10;
-        double avMagnY = MagnYtotal / 10;
-        double avMagnZ = MagnZtotal / 10;
+        double avGyroX = gyroXtotal / 50;
+        double avGyroY = gyroYtotal / 50;
+        double avGyroZ = gyroZtotal / 50;
+        double avAccelX = accelXtotal / 50;
+        double avAccelY = accelYtotal / 50;
+        double avAccelZ = accelZtotal / 50;
+        double avMagnX = MagnXtotal / 50;
+        double avMagnY = MagnYtotal / 50;
+        double avMagnZ = MagnZtotal / 50;
         String merged = avGyroX+ ", "+avGyroY+ ", "+ avGyroZ+ ", "+ avAccelX + ", " + avAccelY + ", " +avAccelZ + ", " + avMagnX + ", " + avMagnY + ", "+ avMagnZ + ", ";
         long t = 0;
         DataPoint average = new DataPoint(merged, t);
