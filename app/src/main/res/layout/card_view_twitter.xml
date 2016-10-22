@@ -1,0 +1,64 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:elevation="7dp"
+            android:contextClickable="false"
+            android:id="@+id/relativeLayoutTwitter"
+            android:background="@drawable/button_background"
+            android:layout_marginTop="10dp"
+            android:clickable="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="70dp"
+            android:layout_marginLeft="70dp">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Connect to Twitter "
+                android:id="@+id/textViewTwitterButton"
+                android:layout_centerVertical="true"
+                android:textColor="@color/colorMaterialGrey100"
+                android:textStyle="bold"
+                android:layout_toRightOf="@+id/textViewTwitter"
+                android:layout_toEndOf="@+id/textViewTwitter" />
+
+            <TextView
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="STEP 3"
+                android:id="@+id/textViewTwitter"
+                android:gravity="center_vertical"
+                android:textColor="@color/colorAccent"
+                android:textSize="16dp"
+                android:layout_marginLeft="14dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="14dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/imageViewTwitterCheck"
+        android:src="@drawable/check"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="false"
+        android:layout_marginRight="10dp"
+        android:visibility="invisible"
+        android:layout_alignBottom="@+id/relativeLayoutTwitter"
+        android:layout_alignTop="@+id/relativeLayoutTwitter" />
+
+
+</RelativeLayout>

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Dissonance</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_launching_screen">Dissonance - Welcome</string>
+    <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="title_activity_performance_page">PerformancePage</string>
 </resources>
