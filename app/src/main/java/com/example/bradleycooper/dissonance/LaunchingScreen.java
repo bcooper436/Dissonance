@@ -1,6 +1,7 @@
 package com.example.bradleycooper.dissonance;
 
 import android.annotation.TargetApi;
+import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -30,6 +31,7 @@ public class LaunchingScreen extends AppCompatActivity {
     String headphoneColor = "White";
     Uri selectedSong;
     String songTitle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -63,6 +65,7 @@ public class LaunchingScreen extends AppCompatActivity {
         textViewTwitterButton.setTypeface(font3);
         textViewAppDescription.setTypeface(font3);
         textViewGetStarted.setTypeface(font);
+
     }
     @Override
     public void onResume() {
@@ -138,6 +141,30 @@ public class LaunchingScreen extends AppCompatActivity {
             }
         });
 
+        ImageView imageViewInfo = (ImageView)findViewById(R.id.imageViewInfo);
+        imageViewInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new AlertDialog.Builder(LaunchingScreen.this)
+                        .setTitle("About Dissonance")
+                        .setMessage("This app is designed to work with the JBL Everest Elite 700 Headphones.  Would you like to visit JBL's official site for more information?")
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.jbl.com/bluetooth-headphones/EVEREST+700+ELITE.html"));
+                                startActivity(browserIntent);
+                                // continue with delete
+                                //
+                            }
+                        })
+                        .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                            }
+                        })
+                        .setIcon(R.drawable.jbl)
+                        .show();
+            }
+        });
+
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -196,22 +223,6 @@ public class LaunchingScreen extends AppCompatActivity {
                 }
             });
         }
-        ImageView imageViewInfo = (ImageView)findViewById(R.id.imageViewInfo);
-        imageViewInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog alertDialog = new AlertDialog.Builder(LaunchingScreen.this).create();
-                alertDialog.setTitle("How to Use Dissonance");
-                alertDialog.setMessage("Dissonance is designed for the JBL Everest Elite 700 Headphones. Move your head to control audio effects. Click on the side button to change the active effect.");
-                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        });
-                alertDialog.show();
-            }
-        });
     }
     private void changeHeadphonesColor(){
         ImageView imageViewHeadphones = (ImageView)findViewById(R.id.imageViewHeadphones);
@@ -243,9 +254,7 @@ public class LaunchingScreen extends AppCompatActivity {
     }
     @Override
     protected void onActivityResult(int requestCode,int resultCode,Intent data){
-
         if(requestCode == 1){
-
             if(resultCode == RESULT_OK){
                 Uri uri = data.getData();
                 selectedSong = uri;

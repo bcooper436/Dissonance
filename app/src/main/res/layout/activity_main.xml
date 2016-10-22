@@ -18,7 +18,7 @@
             android:layout_height="150dp"
             android:id="@+id/imageViewPlay"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/play1"
+            android:src="@drawable/playalt"
             android:layout_alignParentTop="true"
             android:layout_above="@+id/textViewSongTitle"
             android:padding="10dp" />
@@ -41,7 +41,7 @@
             android:layout_height="150dp"
             android:id="@+id/imageViewPause"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/pause"
+            android:src="@drawable/pausealt"
             android:layout_alignParentTop="true"
             android:layout_above="@+id/textViewSongTitle"
             android:padding="10dp"
@@ -57,7 +57,7 @@
         android:layout_below="@+id/relativeLayout"
         android:layout_alignLeft="@+id/relativeLayout"
         android:layout_alignStart="@+id/relativeLayout"
-        android:visibility="gone" />
+        android:visibility="invisible" />
 
     <Button
         android:text="End"
@@ -69,32 +69,58 @@
         android:id="@+id/button1"
         android:layout_alignEnd="@+id/btn_pair"
         android:layout_marginLeft="15dp"
-        android:visibility="gone" />
+        android:visibility="invisible" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Current Effect = "
+        android:text="Current Effect:"
         android:id="@+id/textView2"
-        android:layout_below="@+id/relativeLayout"
-        android:layout_toRightOf="@+id/btn_pair"
-        android:layout_toEndOf="@+id/btn_pair"
-        android:textColor="@color/colorMaterialGrey100"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp" />
+        android:textColor="@color/colorMaterialGrey400"
+        android:layout_above="@+id/textViewCurrentEffect"
+        android:layout_alignLeft="@+id/textViewCurrentEffect"
+        android:layout_alignStart="@+id/textViewCurrentEffect"
+        android:layout_marginBottom="5dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="none"
+        android:text="Volume"
         android:id="@+id/textViewCurrentEffect"
         android:textColor="@color/colorMaterialGrey100"
-        android:layout_below="@+id/textView2"
-        android:layout_toRightOf="@+id/btn_pair"
-        android:layout_toEndOf="@+id/btn_pair"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp" />
+        android:textStyle="bold"
+        android:layout_alignBottom="@+id/button1"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_alignStart="@+id/button1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="100%"
+        android:id="@+id/textViewEffectPercentage"
+        android:layout_alignBottom="@+id/textViewCurrentEffect"
+        android:layout_toRightOf="@+id/textView2"
+        android:layout_toEndOf="@+id/textView2"
+        android:layout_alignTop="@+id/textView2"
+        android:textColor="@color/colorAccent"
+        android:gravity="center"
+        android:layout_marginLeft="20dp"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gesture Effects"
+        android:id="@+id/switchGesture"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:checked="true"
+        android:textColor="@color/material_grey_100"
+        android:textSize="25dp" />
 
 </RelativeLayout>

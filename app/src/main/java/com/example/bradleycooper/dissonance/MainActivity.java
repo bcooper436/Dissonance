@@ -2,15 +2,19 @@ package com.example.bradleycooper.dissonance;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.SystemClock;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -34,9 +38,9 @@ public class MainActivity extends Activity {
     public static StartingValue start = new StartingValue();
     public static int count = 0;
     public static DataPoint aveStart;
-    static boolean effectIsEnabled = false;
-
-    TextView textViewEffectName = (TextView)findViewById(R.id.textViewCurrentEffect);
+    public static TextView textViewEffectPercentage;
+    static boolean effectIsEnabled = true;
+    private Activity activity3;
 
     private static Context context;
     Bluetooth connector;
@@ -48,6 +52,7 @@ public class MainActivity extends Activity {
 
     // See http://stackoverflow.com/questions/3551821/android-write-to-sd-card-folder
     static double newVolume = -9;
+    ProgressDialog progress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,13 +64,46 @@ public class MainActivity extends Activity {
 
         MainActivity.context = getApplicationContext();
         setContentView(R.layout.activity_main);
-
+        progress = new ProgressDialog(MainActivity.this);
         Bundle extras = getIntent().getExtras();
         final Uri songUri = Uri.parse(extras.getString("songUri"));
         final String songTitle = extras.getString("songTitle");
 
+
+        progress.setTitle("Calibrating Headphones");
+        progress.setMessage("Please keep your head at its normal, upright position for a few seconds.");
+        progress.setCancelable(false); // disable dismiss by tapping outside of the dialog
+        progress.show();
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                progress.dismiss();
+            }
+        }, 8000);
+
+        textViewEffectPercentage = (TextView)findViewById(R.id.textViewEffectPercentage);
+
         TextView textViewSongTitle = (TextView)findViewById(R.id.textViewSongTitle);
         textViewSongTitle.setText("Currently Playing = " + songTitle);
+
+        final MediaPlayer mPlayer = new MediaPlayer();
+        mPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+        try {
+            mPlayer.setDataSource(getApplicationContext(), songUri);
+        } catch (IllegalArgumentException e) {
+        } catch (SecurityException e) {
+        } catch (IllegalStateException e) {
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            mPlayer.prepare();
+        } catch (IllegalStateException e) {
+        } catch (IOException e) {
+        }
+
+
 
         final ImageView imageViewPlay = (ImageView)findViewById(R.id.imageViewPlay);
         final ImageView imageViewPause = (ImageView)findViewById(R.id.imageViewPause);
@@ -75,7 +113,7 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 imageViewPause.setVisibility(View.VISIBLE);
                 imageViewPlay.setVisibility(View.INVISIBLE);
-                play(songUri);
+                mPlayer.start();
             }
         });
         imageViewPause.setOnClickListener(new View.OnClickListener() {
@@ -83,10 +121,9 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 imageViewPause.setVisibility(View.INVISIBLE);
                 imageViewPlay.setVisibility(View.VISIBLE);
-                pause();
+                mPlayer.pause();
             }
         });
-
 
         button = (Button) findViewById(R.id.btn_pair);
         button1 = (Button) findViewById(R.id.button1);
@@ -151,31 +188,16 @@ public class MainActivity extends Activity {
     public static void turnOnOrOffEffect(){
         if(effectIsEnabled){
             effectIsEnabled = false;
+            Log.d("EFFECT TOGGLE", "Turn Off");
         }
         else{
             effectIsEnabled = true;
+            Log.d("EFFECT TOGGLE", "Turn On");
         }
     }
     private void play(Uri song){
-        MediaPlayer mPlayer = new MediaPlayer();
-        mPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-        try {
-            mPlayer.setDataSource(getApplicationContext(), song);
-        } catch (IllegalArgumentException e) {
-        } catch (SecurityException e) {
-        } catch (IllegalStateException e) {
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            mPlayer.prepare();
-        } catch (IllegalStateException e) {
-        } catch (IOException e) {
-        }
-        mPlayer.start();
     }
     private void pause(){
-
     }
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
@@ -200,68 +222,58 @@ public class MainActivity extends Activity {
 
     }
     public static void changeVolume(double y){
-        int newVolume = 0;
-        int newNewVolume = 0;
-        if(y > -10) {
-            newVolume = 15;
-        }
-        else if (y <= -10 && y > -10.5){
-            newVolume = 14;
-        }
-        else if (y <= -10.5 && y > -11){
-            newVolume = 14;
-        }
-        else if (y <= -11 && y > -11.5){
-            newVolume = 13;
-        }
-        else if (y <= -11.5 && y > -12){
-            newVolume = 12;
-        }
-        else if (y <= -12 && y > -12.5){
-            newVolume = 11;
-        }
-        else if (y <= -12.5 && y > -13){
-            newVolume = 10;
-        }
-        else if (y <= -13 && y > -13.5){
-            newVolume = 9;
-        }
-        else if (y <= -13.5 && y > -14){
-            newVolume = 8;
-        }
-        else if (y <= -14 && y > -14.5){
-            newVolume = 7;
-        }
-        else if (y <= -14.5 && y > -15){
-            newVolume = 6;
-        }
-        else if (y <= -15 && y > -15.5){
-            newVolume = 5;
-        }
-        else if (y <= -15.5 && y > -16){
-            newVolume = 4;
-        }
-        else if (y <= -16 && y > -16.5){
-            newVolume = 3;
-        }
-        else if (y <= -16.5 && y > -17){
-            newVolume = 2;
-        }
-        else if (y <= -17 && y > -17.5){
-            newVolume = 1;
-        }
-        else if (y <= -17.5){
-            newVolume = 0;
-        }
-        AudioManager mAudioManager = (AudioManager)context.getSystemService(Context.AUDIO_SERVICE);
-        int maxVolume = mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
-        newNewVolume = (int)(maxVolume * newVolume);
-        mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, newVolume, 0);
-        Log.d("max =  " , maxVolume + "");
-        Log.d("volume =  " , newVolume + "");
-        Log.d("y =  " , y + "");
-        Log.d("newVolume =  " , newNewVolume + "");
+        if(effectIsEnabled) {
+            int newVolume = 0;
+            int newNewVolume = 0;
+            if (y > -10) {
+                newVolume = 15;
+            } else if (y <= -10 && y > -10.5) {
+                newVolume = 14;
+            } else if (y <= -10.5 && y > -11) {
+                newVolume = 14;
+            } else if (y <= -11 && y > -11.5) {
+                newVolume = 13;
+            } else if (y <= -11.5 && y > -12) {
+                newVolume = 12;
+            } else if (y <= -12 && y > -12.5) {
+                newVolume = 11;
+            } else if (y <= -12.5 && y > -13) {
+                newVolume = 10;
+            } else if (y <= -13 && y > -13.5) {
+                newVolume = 9;
+            } else if (y <= -13.5 && y > -14) {
+                newVolume = 8;
+            } else if (y <= -14 && y > -14.5) {
+                newVolume = 7;
+            } else if (y <= -14.5 && y > -15) {
+                newVolume = 6;
+            } else if (y <= -15 && y > -15.5) {
+                newVolume = 5;
+            } else if (y <= -15.5 && y > -16) {
+                newVolume = 4;
+            } else if (y <= -16 && y > -16.5) {
+                newVolume = 3;
+            } else if (y <= -16.5 && y > -17) {
+                newVolume = 2;
+            } else if (y <= -17 && y > -17.5) {
+                newVolume = 1;
+            } else if (y <= -17.5) {
+                newVolume = 0;
+            }
+            AudioManager mAudioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+            mAudioManager.setSpeakerphoneOn(true);
+            int maxVolume = mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+            newNewVolume = (int) (maxVolume * newVolume);
+            mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, newVolume, 0);
+            Log.d("max =  ", maxVolume + "");
+            Log.d("volume =  ", newVolume + "");
+            Log.d("y =  ", y + "");
+            Log.d("newVolume =  ", newNewVolume + "");
 
+            double percentage = (newVolume / 15.0) * 100;
+            int percentage2 = (int) percentage;
+            textViewEffectPercentage.setText(String.valueOf(percentage2) + "%");
+        }
     }
     public static void setStart(String data) {
         if (count < 50) {
@@ -270,6 +282,8 @@ public class MainActivity extends Activity {
             count++;
         }
         if (count == 50) {
+            Class<MainActivity> activity = MainActivity.class;
+            //TODO: Dismiss Progress Bar Here
             aveStart = start.getAverage();
             count++;
         }
@@ -348,6 +362,5 @@ public class MainActivity extends Activity {
             }
         }
     }
-
 }
 

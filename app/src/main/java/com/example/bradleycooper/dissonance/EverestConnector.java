@@ -10,6 +10,7 @@ import com.harman.everestelite.ANCCtrlListner;
 import com.harman.everestelite.Bluetooth;
 import com.harman.everestelite.BluetoothListener;
 import com.harman.everestelite.CommonListner;
+import com.harman.everestelite.EQSettingListner;
 import com.harman.everestelite.HeadPhoneCtrl;
 
 import java.io.FileNotFoundException;
@@ -148,7 +149,22 @@ class EverestConnector implements BluetoothListener {
                     Log.d("EVERTEST", "button pressed");
                     MainActivity.turnOnOrOffEffect();
                 }
+                EQSettingListner eqSetting = new EQSettingListner() {
+                    @Override
+                    public void getCurrentEQPresetReply(String s, int i) {
+                        Log.d("EQ Preset Reply", "s");
+                    }
 
+                    @Override
+                    public void getEQSettingParamReply(int i, int i1, long[] longs) {
+
+                    }
+
+                    @Override
+                    public void getEQMinMaxParam(int i, int i1, int i2, int i3) {
+
+                    }
+                };
                 @Override
                 public void get9AxisRawDataReply(double v, double v1, double v2, double v3, double v4, double v5, double v6, double v7, double v8) {
 
