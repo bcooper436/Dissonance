@@ -1,0 +1,74 @@
+[
+    {
+        "merged": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/build/intermediates/res/merged/debug/drawable-xxhdpi/pausealt.png",
+        "source": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/src/main/res/drawable-xxhdpi/pausealt.png"
+    },
+    {
+        "merged": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_launcher.png",
+        "source": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/src/main/res/drawable-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/build/intermediates/res/merged/debug/drawable-xxhdpi/play1.png",
+        "source": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/src/main/res/drawable-xxhdpi/play1.png"
+    },
+    {
+        "merged": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/build/intermediates/res/merged/debug/drawable-xxhdpi/headphones.png",
+        "source": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/src/main/res/drawable-xxhdpi/headphones.png"
+    },
+    {
+        "merged": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/build/intermediates/res/merged/debug/drawable-xxhdpi/exit.png",
+        "source": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/src/main/res/drawable-xxhdpi/exit.png"
+    },
+    {
+        "merged": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/build/intermediates/res/merged/debug/drawable-xxhdpi/headphoneswhite.png",
+        "source": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/src/main/res/drawable-xxhdpi/headphoneswhite.png"
+    },
+    {
+        "merged": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/build/intermediates/res/merged/debug/drawable-xxhdpi/pause.png",
+        "source": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/src/main/res/drawable-xxhdpi/pause.png"
+    },
+    {
+        "merged": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/build/intermediates/res/merged/debug/drawable-xxhdpi/info.png",
+        "source": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/src/main/res/drawable-xxhdpi/info.png"
+    },
+    {
+        "merged": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/build/intermediates/res/merged/debug/drawable-xxhdpi/headphoneswhitealt.png",
+        "source": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/src/main/res/drawable-xxhdpi/headphoneswhitealt.png"
+    },
+    {
+        "merged": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/build/intermediates/res/merged/debug/drawable-xxhdpi/startovergrey2.png",
+        "source": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/src/main/res/drawable-xxhdpi/startovergrey2.png"
+    },
+    {
+        "merged": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/build/intermediates/res/merged/debug/drawable-xxhdpi/startover.png",
+        "source": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/src/main/res/drawable-xxhdpi/startover.png"
+    },
+    {
+        "merged": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/build/intermediates/res/merged/debug/drawable-xxhdpi/playalt.png",
+        "source": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/src/main/res/drawable-xxhdpi/playalt.png"
+    },
+    {
+        "merged": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/build/intermediates/res/merged/debug/drawable-xxhdpi/clear.png",
+        "source": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/src/main/res/drawable-xxhdpi/clear.png"
+    },
+    {
+        "merged": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/build/intermediates/res/merged/debug/drawable-xxhdpi/startovergrey.png",
+        "source": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/src/main/res/drawable-xxhdpi/startovergrey.png"
+    },
+    {
+        "merged": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/build/intermediates/res/merged/debug/drawable-xxhdpi/check.png",
+        "source": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/src/main/res/drawable-xxhdpi/check.png"
+    },
+    {
+        "merged": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/build/intermediates/res/merged/debug/drawable-xxhdpi/startoveralt.png",
+        "source": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/src/main/res/drawable-xxhdpi/startoveralt.png"
+    },
+    {
+        "merged": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/build/intermediates/res/merged/debug/drawable-xxhdpi/headphonesblackalt.png",
+        "source": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/src/main/res/drawable-xxhdpi/headphonesblackalt.png"
+    },
+    {
+        "merged": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/build/intermediates/res/merged/debug/drawable-xxhdpi/jbl.png",
+        "source": "/Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/src/main/res/drawable-xxhdpi/jbl.png"
+    }
+]

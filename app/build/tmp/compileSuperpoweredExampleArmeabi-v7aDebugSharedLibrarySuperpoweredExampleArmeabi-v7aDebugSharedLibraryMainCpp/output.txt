@@ -1,0 +1,8 @@
+See file:///Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/build/tmp/compileSuperpoweredExampleArmeabi-v7aDebugSharedLibrarySuperpoweredExampleArmeabi-v7aDebugSharedLibraryMainCpp/output.txt for all output for compileSuperpoweredExampleArmeabi-v7aDebugSharedLibrarySuperpoweredExampleArmeabi-v7aDebugSharedLibraryMainCpp.
+compiling SuperpoweredAndroidAudioIO.cpp successful.
+
+compiling SuperpoweredExample.cpp successful.
+<built-in>: In function 'float abs(float)':
+<built-in>: warning: conflicts with previous declaration here [-Wattributes]
+
+Finished compileSuperpoweredExampleArmeabi-v7aDebugSharedLibrarySuperpoweredExampleArmeabi-v7aDebugSharedLibraryMainCpp, see full log file:///Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/build/tmp/compileSuperpoweredExampleArmeabi-v7aDebugSharedLibrarySuperpoweredExampleArmeabi-v7aDebugSharedLibraryMainCpp/output.txt.

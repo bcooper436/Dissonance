@@ -1,27 +1,43 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="google.com.dissonance.MainActivity"
-    android:background="@color/colorMaterialGrey900">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"  tools:context=".MainActivity" android:background="@color/colorMaterialGrey900"
+    android:windowActionBar="false">
 
+    <Button
+        android:id="@+id/playPause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:onClick="SuperpoweredExample_PlayPause"
+        android:text="PLAY"
+        android:visibility="gone" />
+
+    <SeekBar
+        android:id="@+id/fxFader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/radioGroup1"
+        android:layout_marginTop="35dp"
+        android:visibility="gone" />
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
         android:background="@color/colorPrimary"
         android:id="@+id/relativeLayout"
-        android:paddingBottom="10dp">
+        android:paddingBottom="10dp"
+        android:layout_height="150dp">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="150dp"
             android:id="@+id/imageViewPlay"
             android:layout_centerHorizontal="true"
             android:src="@drawable/playalt"
-            android:layout_alignParentTop="true"
-            android:layout_above="@+id/textViewSongTitle"
-            android:padding="10dp" />
+            android:layout_height="200dp"
+            android:layout_width="175dp"
+            android:layout_below="@+id/textViewDJName"
+            android:layout_alignParentBottom="true" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -34,93 +50,320 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:gravity="center" />
+            android:gravity="center"
+            android:visibility="invisible" />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="150dp"
             android:id="@+id/imageViewPause"
             android:layout_centerHorizontal="true"
             android:src="@drawable/pausealt"
-            android:layout_alignParentTop="true"
-            android:layout_above="@+id/textViewSongTitle"
             android:padding="10dp"
+            android:visibility="visible"
+            android:layout_height="200dp"
+            android:layout_width="175dp"
+            android:layout_below="@+id/textViewDJName"
+            android:layout_alignParentBottom="true" />
+
+        <Button
+            android:text="Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/imageViewPlay"
+            android:layout_toEndOf="@+id/imageViewPlay"
+            android:layout_marginTop="16dp"
+            android:id="@+id/button1"
             android:visibility="invisible" />
+
+        <Button
+            android:text="Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/imageViewPlay"
+            android:layout_toEndOf="@+id/imageViewPlay"
+            android:id="@+id/btn_pair"
+            android:visibility="invisible" />
+
+        <SeekBar
+            android:id="@+id/crossFader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_below="@+id/imageViewPlay"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:background="@color/cardview_dark_background" />
+
+        <TextView
+            android:text="DJ COOPSTER"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/textViewDJName"
+            android:textSize="35sp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/colorMaterialGrey900" />
+
     </RelativeLayout>
 
-    <Button
-        android:id="@+id/btn_pair"
+    <RadioGroup
+        android:id="@+id/radioGroup1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Click to pair"
-        android:layout_marginLeft="15dp"
-        android:layout_below="@+id/relativeLayout"
-        android:layout_alignLeft="@+id/relativeLayout"
-        android:layout_alignStart="@+id/relativeLayout"
-        android:visibility="invisible" />
-
-    <Button
-        android:text="End"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_pair"
+        android:orientation="horizontal"
+        android:layout_marginBottom="154dp"
+        android:layout_above="@+id/textViewSongTitle"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="51dp"
-        android:id="@+id/button1"
-        android:layout_alignEnd="@+id/btn_pair"
-        android:layout_marginLeft="15dp"
-        android:visibility="invisible" />
+        android:visibility="gone">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Current Effect:"
-        android:id="@+id/textView2"
-        android:textColor="@color/colorMaterialGrey400"
-        android:layout_above="@+id/textViewCurrentEffect"
-        android:layout_alignLeft="@+id/textViewCurrentEffect"
-        android:layout_alignStart="@+id/textViewCurrentEffect"
-        android:layout_marginBottom="5dp" />
+        <RadioButton
+            android:id="@+id/radio0"
+            android:layout_width="wrap_content"
+            android:layout_height="76dp"
+            android:checked="true"
+            android:text="FLANGER"
+            android:textColor="@color/colorMaterialGrey100" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Volume"
-        android:id="@+id/textViewCurrentEffect"
-        android:textColor="@color/colorMaterialGrey100"
-        android:textStyle="bold"
-        android:layout_alignBottom="@+id/button1"
-        android:layout_alignLeft="@+id/button1"
-        android:layout_alignStart="@+id/button1" />
+        <RadioButton
+            android:id="@+id/radio1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FILTER"
+            android:textColor="@color/colorMaterialGrey100" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="100%"
-        android:id="@+id/textViewEffectPercentage"
-        android:layout_alignBottom="@+id/textViewCurrentEffect"
-        android:layout_toRightOf="@+id/textView2"
-        android:layout_toEndOf="@+id/textView2"
-        android:layout_alignTop="@+id/textView2"
-        android:textColor="@color/colorAccent"
-        android:gravity="center"
-        android:layout_marginLeft="20dp"
-        android:textSize="25dp"
-        android:textStyle="bold" />
+        <RadioButton
+            android:id="@+id/radio2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ROLL"
+            android:textColor="@color/colorMaterialGrey100" />
+    </RadioGroup>
 
-    <Switch
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Gesture Effects"
-        android:id="@+id/switchGesture"
-        android:layout_below="@+id/relativeLayout"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
-        android:checked="true"
-        android:textColor="@color/material_grey_100"
-        android:textSize="25dp" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/relativeLayout">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorMaterialGrey800"
+            android:layout_marginBottom="1dp"
+            android:id="@+id/relativeLayoutFlanger">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/clear"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/imageViewFlangerClear"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:padding="15dp" />
+
+            <TextView
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Flanger"
+                android:id="@+id/textViewFlanger"
+                android:textColor="@color/colorMaterialGrey100"
+                android:gravity="center_vertical"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="0%"
+                android:id="@+id/textViewFlangerPercentage"
+                android:textColor="@color/colorMaterialGrey600"
+                android:gravity="center"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/textViewFlanger"
+                android:layout_toEndOf="@+id/textViewFlanger"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="20dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorMaterialGrey800"
+            android:layout_marginBottom="1dp"
+            android:id="@+id/relativeLayoutHiPass">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/clear"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/imageViewHiPassClear"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:padding="15dp" />
+
+            <TextView
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="HiPass"
+                android:id="@+id/textViewHiPass"
+                android:textColor="@color/colorMaterialGrey100"
+                android:gravity="center_vertical"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="0%"
+                android:id="@+id/textViewHiPassPercentage"
+                android:textColor="@color/colorMaterialGrey600"
+                android:gravity="center"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/textViewHiPass"
+                android:layout_toEndOf="@+id/textViewHiPass"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="20dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorMaterialGrey800"
+            android:layout_marginBottom="2dp"
+            android:id="@+id/relativeLayoutRoll">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/clear"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/imageViewRollClear"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:padding="15dp" />
+
+            <TextView
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Roll"
+                android:id="@+id/textViewRoll"
+                android:textColor="@color/colorMaterialGrey100"
+                android:gravity="center_vertical"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="0%"
+                android:id="@+id/textViewRollPercentage"
+                android:textColor="@color/colorMaterialGrey600"
+                android:gravity="center"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/textViewRoll"
+                android:layout_toEndOf="@+id/textViewRoll"
+                android:layout_marginStart="24dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentTop="true" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorMaterialGrey800"
+            android:layout_marginBottom="1dp"
+            android:id="@+id/relativeLayoutVolume">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Volume"
+                android:id="@+id/textViewVolume"
+                android:textColor="@color/colorMaterialGrey100"
+                android:gravity="center_vertical"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="15dp"
+                android:layout_width="75dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="100%"
+                android:id="@+id/textViewVolumePercentage"
+                android:textColor="@color/colorMaterialGrey600"
+                android:gravity="center"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/textViewVolume"
+                android:layout_toEndOf="@+id/textViewVolume"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="20dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/clear"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/imageViewVolumeClear"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:padding="15dp" />
+
+        </RelativeLayout>
+
+        <Switch
+            android:text="Gesture Enabled Effects"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/switchGesture"
+            android:textSize="20sp"
+            android:textColor="@color/colorMaterialGrey100"
+            android:gravity="center|start"
+            android:textAlignment="center"
+            android:checked="false"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="104dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="25dp" />
+    </LinearLayout>
 
 </RelativeLayout>

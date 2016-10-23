@@ -1,0 +1,4 @@
+See file:///Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/build/tmp/linkSuperpoweredExampleArmeabi-v7aDebugSharedLibrary/output.txt for all output for linkSuperpoweredExampleArmeabi-v7aDebugSharedLibrary.
+linking libSuperpoweredExample.so successful.
+
+Finished linkSuperpoweredExampleArmeabi-v7aDebugSharedLibrary, see full log file:///Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/build/tmp/linkSuperpoweredExampleArmeabi-v7aDebugSharedLibrary/output.txt.

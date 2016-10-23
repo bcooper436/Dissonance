@@ -1,0 +1,4 @@
+See file:///Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/build/tmp/linkSuperpoweredExampleX86DebugSharedLibrary/output.txt for all output for linkSuperpoweredExampleX86DebugSharedLibrary.
+linking libSuperpoweredExample.so successful.
+
+Finished linkSuperpoweredExampleX86DebugSharedLibrary, see full log file:///Users/williammcclain/Downloads/SuperpoweredSDK/Android/CrossExample/app/build/tmp/linkSuperpoweredExampleX86DebugSharedLibrary/output.txt.
