@@ -1,4 +1,4 @@
-Team Beard - HackGSU Fall 2016
+### Team Beard - HackGSU Fall 2016
 
 ## Inspiration
 
@@ -29,3 +29,11 @@ We learned a great deal through this process about a variety of topics from Blue
 ## What's next for Dissonance
 
 We see many more way for this application to develop and be utilized. We would love to implement audio effects and recording into the app, making it into a hands-free virtual mixer.
+## Built With
+* java
+* android
+* android-studio
+* everest-elite-700-sdk
+* jbl-everest-sdk
+* matlab
+* bluetooth 4.0
